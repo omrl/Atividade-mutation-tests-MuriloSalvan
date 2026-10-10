@@ -1,0 +1,32 @@
+{
+  "name": "mutation-tests-jest",
+  "version": "1.0.0",
+  "description": "Mutation tests com Stryker sobre os testes unitarios em Jest",
+  "main": "index.js",
+  "author": "Murilo Salvan",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^30.4.2",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^6.1.3"
+  },
+  "scripts": {
+    "clean": "rimraf ./coverage && mkdirp ./coverage",
+    "test": "npm run clean && jest",
+    "coverage": "npm run clean && jest --coverage",
+    "mutation": "stryker run"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^10.0.0",
+    "@stryker-mutator/jest-runner": "^10.0.0"
+  }
+}

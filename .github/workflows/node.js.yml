@@ -1,0 +1,41 @@
+name: Build and Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7.0.1
+    - name: Use Node.js 22
+      uses: actions/setup-node@v7.0.0
+      with:
+        node-version: 22
+        cache: 'npm'
+    - run: npm install
+    - run: npm run coverage
+
+  mutation:
+    name: Run Mutation Tests (Stryker)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v7.0.1
+    - name: Use Node.js 22
+      uses: actions/setup-node@v7.0.0
+      with:
+        node-version: 22
+        cache: 'npm'
+    - run: npm install
+    - run: npm run mutation
+    - name: Upload mutation report
+      if: always()
+      uses: actions/upload-artifact@v7.0.2
+      with:
+        name: mutation-report
+        path: reports/mutation/
