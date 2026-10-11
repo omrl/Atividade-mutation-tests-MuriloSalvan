@@ -1,5 +1,9 @@
 # Mutation Tests com Stryker
 
+[![Build and Tests](https://github.com/omrl/Atividade-mutation-tests-MuriloSalvan/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/omrl/Atividade-mutation-tests-MuriloSalvan/actions/workflows/node.js.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=omrl_Atividade-mutation-tests-MuriloSalvan&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=omrl_Atividade-mutation-tests-MuriloSalvan)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=omrl_Atividade-mutation-tests-MuriloSalvan&metric=coverage)](https://sonarcloud.io/summary/new_code?id=omrl_Atividade-mutation-tests-MuriloSalvan)
+
 Projeto baseado no primeiro trabalho de testes unitários ([prova01-unit-test-MuriloSalvan](https://github.com/omrl/prova01-unit-test-MuriloSalvan)), agora avaliado com **testes de mutação** usando o [Stryker Mutator](https://stryker-mutator.io/).
 
 ## O que é teste de mutação
@@ -91,3 +95,4 @@ Os 6 sobreviventes restantes são **mutantes equivalentes**: o código muda, mas
 - `src`: código-fonte
 - `test`: testes unitários (os testes novos ficam no bloco `mutation tests` de cada arquivo)
 - `stryker.config.json`: configuração do Stryker
+- `sonar-project.properties`: configuração do SonarCloud (a análise roda no GitHub Actions junto com a cobertura do Jest)
